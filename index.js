@@ -56,10 +56,12 @@ client.on("interactionCreate", async (interaction) => {
             .setTitle("Hey!")
             .setColor("DarkPurple");
         const file = new AttachmentBuilder("./friday.mp4");
-        await interaction.reply({
+        await interaction.reply("It's Friday Time.......");
+        const result = {
             embeds: [embedFriday],
             files: [file],
-        });
+        };
+        await interaction.editReply(result);
     }
 });
 
