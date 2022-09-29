@@ -32,11 +32,11 @@ client.on("messageCreate", (message) => {
             if (day !== 5) return;
             const embedFriday = new EmbedBuilder()
                 .setDescription("It's Friday In California.")
-                .setTitle("Hey!")
+                .setTitle("Hey <@745191242970824735>!")
                 .setColor("DarkPurple");
             const file = new AttachmentBuilder("./friday.mp4");
             message.channel.send({
-                content: "Hello",
+                content: "<@745191242970824735> It's Friday Time.......",
                 embeds: [embedFriday],
                 files: [file],
             });
@@ -53,10 +53,12 @@ client.on("interactionCreate", async (interaction) => {
     if (commandName === "friday") {
         const embedFriday = new EmbedBuilder()
             .setDescription("It's Friday In California.")
-            .setTitle("Hey!")
+            .setTitle("Hey Liz!")
             .setColor("DarkPurple");
         const file = new AttachmentBuilder("./friday.mp4");
-        await interaction.reply("It's Friday Time.......");
+        await interaction.reply(
+            "<@745191242970824735> It's Friday Time......."
+        );
         const result = {
             embeds: [embedFriday],
             files: [file],
