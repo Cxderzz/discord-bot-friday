@@ -29,7 +29,7 @@ client.on("messageCreate", (message) => {
     ) {
         setInterval(() => {
             const day = new Date().getUTCDay();
-            if (day !== 4) return;
+            if (day !== 5) return;
             const embedFriday = new EmbedBuilder()
                 .setDescription("It's Friday In California.")
                 .setTitle("Hey!")
