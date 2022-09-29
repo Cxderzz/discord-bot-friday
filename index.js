@@ -15,13 +15,29 @@ client.once("ready", () => {
     console.log("Ready!");
 });
 
+client.on("message", (message) => {
+    var interval = setInterval(() => {
+        message.channel
+            .send("Hello") // increment the variable
+            .catch(console.error); // add error handling here
+    }, 1000);
+});
+
 client.on("interactionCreate", async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
     const { commandName } = interaction;
-    const file = new AttachmentBuilder("");
+
     if (commandName === "friday") {
-        await interaction.reply("Pong!");
+        const embedFriday = new EmbedBuilder()
+            .setDescription("It's Friday In California.")
+            .setTitle("Hey!")
+            .setColor("DarkPurple");
+        const file = new AttachmentBuilder("./friday.mp4");
+        await interaction.reply({
+            embeds: [embedFriday],
+            files: [file],
+        });
     }
 });
 
